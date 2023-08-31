@@ -210,3 +210,39 @@
 // let result = capitalize("testing")
 // console.log(result)
 // return result
+
+
+// function sumDigits(number) {
+//   let count = 0; // Initialize a variable to keep track of the sum
+
+//   let splitNumber = Math.abs(number).toString(); // Convert the absolute value of the number to a string
+//   for (let i = 0; i < splitNumber.length; i++) {
+//     let splitNumberDigit = parseInt(splitNumber[i]); // Parse the digit
+//     count += splitNumberDigit; // Add the digit to the sum
+//   }
+//   console.log(count)
+//   return count; // Return the final sum
+// }
+
+// let number = -52663
+// sumDigits(number)
+
+
+
+function noBoringZeros(n) {
+  let reversed = n.toString().split("").reverse();
+  for (let i = 0; i < reversed.length; i++) {
+    if (reversed[i] !== "0") {
+      break;
+    }
+    reversed.splice(i, 1);
+    i--;
+  }
+  let result = parseInt(reversed.reverse().join("")) || 0;
+  console.log(result);
+  return result;
+}
+
+
+let n = [1234500];
+noBoringZeros(n)
