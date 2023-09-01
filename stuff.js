@@ -229,20 +229,43 @@
 
 
 
-function noBoringZeros(n) {
-  let reversed = n.toString().split("").reverse();
-  for (let i = 0; i < reversed.length; i++) {
-    if (reversed[i] !== "0") {
-      break;
-    }
-    reversed.splice(i, 1);
-    i--;
-  }
-  let result = parseInt(reversed.reverse().join("")) || 0;
-  console.log(result);
-  return result;
-}
+// function noBoringZeros(n) {
+//   let reversed = n.toString().split("").reverse();
+//   for (let i = 0; i < reversed.length; i++) {
+//     if (reversed[i] !== "0") {
+//       break;
+//     }
+//     reversed.splice(i, 1);
+//     i--;
+//   }
+//   let result = parseInt(reversed.reverse().join("")) || 0;
+//   console.log(result);
+//   return result;
+// }
 
 
-let n = [1234500];
-noBoringZeros(n)
+// let n = [1234500];
+// noBoringZeros(n)
+
+
+
+// function findOdd(A) {
+//   let countDict = {};
+//   for (let i=0; i<A.length; i++) {
+//   if (!(A[i] in countDict)) {
+//     countDict[A[i]] = 1;
+//   }
+//     else {
+//       countDict[A[i]]++;
+//     }
+//     }
+//   for (let i=0;i<A.length;i++) {
+//     if (countDict[A[i]] % 2 !== 0) {
+//       console.log(A[i]);
+//       return A[i];
+//     }
+//   }
+// }
+
+// let A = [20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5]
+// findOdd(A)
