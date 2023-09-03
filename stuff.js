@@ -269,3 +269,172 @@
 
 // let A = [20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5]
 // findOdd(A)
+
+
+// function findUniq(arr) {
+//   let sortedArr = arr.sort((a, b) => a - b);
+//   if (sortedArr[0] !== sortedArr[1]) {
+//     console.log(sortedArr[0]);
+//     return sortedArr[0];
+//   }
+//   else {
+//     console.log(sortedArr[sortedArr.length - 1]);
+//     return sortedArr[sortedArr.length - 1];
+//   }
+// }
+
+
+// let arr = [1,1,1,1,2,1,1,1];
+// findUniq(arr)
+
+
+// function arrayDiff(a, b) {
+//   for (let i = 0; i < a.length; i++) {
+//     for (let j = 0; j < b.length; j++) {
+//       if (b[j] === a[i]) {
+//         a.splice(i, 1);
+//         i--;
+//       }
+//     }
+//   }
+//   console.log(a);
+//   return a;
+// }
+
+// let a = [1,2];
+// let b = [2];
+// arrayDiff(a, b)
+
+
+// function arrayDiff(a, b) {
+//   let result = a.filter(item => !b.includes(item));
+//   console.log(result);
+//   return result;
+// }
+
+
+// // let a = [1,2];
+// // let b = [2];
+// // arrayDiff(a, b)
+
+
+
+// function diamond(n) {
+//   if (n % 2 === 0 || n <= 0) {
+//     return null;
+//   }
+//   let result = '';
+//   for (let i = 1; i <= n; i += 2) {
+//     const spaces = ' '.repeat((n - i) / 2);
+//     const stars = '*'.repeat(i);
+//     result += spaces + stars + '\n';
+//   }
+//   for (let i = n - 2; i >= 1; i -= 2) {
+//     const spaces = ' '.repeat((n - i) / 2);
+//     const stars = '*'.repeat(i);
+//     result += spaces + stars + '\n';
+//   }
+//   console.log(result);
+//   return result;
+// }
+
+// let n = 7;
+// diamond(n)
+
+
+// function tribonacci(signature, n) {
+//   if (n === 0) {
+//     return [];
+//   }
+//   while (signature.length < n) {
+//     const nextNumber = signature.slice(-3).reduce((sum, num) => sum + num, 0);
+//     signature.push(nextNumber);
+//   }
+//   let result = signature.slice(0, n);
+//   console.log(result);
+//   return result;
+// }
+
+
+// let signature = [1,1,1];
+// let n = 10;
+// tribonacci(signature, n)
+
+
+// function multiTable(number) {
+//   let table = '';
+
+//   for (let i = 1; i <= 10; i++) {
+//     const product = i * number;
+//     table += `${i} * ${number} = ${product}\n`;
+//   }
+//   console.log(table);
+//   return table.trim(); // .trim() removes the leading and trailing white space
+// } //  Only works with the trim method, but it looks some on the terminal
+
+// let number = 5;
+// multiTable(number)
+
+
+// helloWorld = function() {
+//   let str = "Hello World!";
+//   console.log( str );
+// }
+
+// helloWorld()
+
+
+// function encrypt(text, n) {
+//   if (text === "" || n <= 0) {
+//     return text;
+//   }
+//   let counter = n;
+//   while (counter > 0) {
+//  let newText = '';
+//   for (let i=1;i<text.length;i+=2){
+//     newText += text[i];
+//   }
+//   for (let i=0;i<text.length;i+=2) {
+//     newText += text[i];
+//   }
+//   text=newText;
+//   counter -=1;
+//   console.log(newText);
+// }
+//   return text;
+// }
+
+// let text = "012345";
+// let n = 3;
+
+// encrypt(text, n)
+
+
+// function decrypt(encryptedText, n) {
+//   if (encryptedText === "" || n <= 0) {
+//     return encryptedText;
+//   }
+//   for (let i=0; i<n; i++){
+//     let newText = "";
+
+//   const mid = Math.ceil(encryptedText.length / 2);
+//     const oddChars = encryptedText.slice(0, mid);
+//     const evenChars = encryptedText.slice(mid);
+
+//     for (let j=0; j<evenChars.length; j++) {
+//       newText += evenChars[j] + oddChars[j];
+//     }
+
+//     if (oddChars.length > evenChars.length) {
+//       newText += oddChars.slice(-1);
+//     }
+//     encryptedText = newText;
+//   }
+//   console.log(encryptedText);
+//   return encryptedText;
+// }
+
+// let encryptedText = "13024";
+// let n = 2;
+
+// decrypt(encryptedText, n)
