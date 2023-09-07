@@ -475,15 +475,36 @@
 // queueTime(customers, n);
 
 
-function foo() {
-  return bar();
-  function bar() {
-  return 5;
-  }
-  function bar() {
-  return 10;
-  }
-  }
-  console.log(foo());
+// function foo() {
+//   return bar();
+//   function bar() {
+//   return 5;
+//   }
+//   function bar() {
+//   return 10;
+//   }
+//   }
+//   console.log(foo());
 
-  foo()
+//   foo()
+
+
+var isAnagram = function(test, original) {
+  let sortedTest = test.toLowerCase().split('').sort();
+  // If you do test.toLowerCase().split('').sort().join('');
+  // Then you can just compare sortedtest === sortedOriginal and not JSON.stringify it
+  let sortedOriginal = original.toLowerCase().split('').sort();
+  if (JSON.stringify(sortedTest) === JSON.stringify(sortedOriginal)) {
+    return true;
+  }
+  else {
+    return false;
+  }
+};
+
+
+let test = 'bucket';
+let original = 'tuckeb';
+
+let result = isAnagram(test, original);
+console.log(result)
