@@ -405,3 +405,16 @@
 # p(list1)
 
 # print("hello world")
+
+
+# def multiples(x, n):
+#     result = []
+#     for i in range(1, n + 1):
+#         result.append(x * i)
+#     return result
+
+# # Example usage:
+# x = 5
+# n = 4
+# result = multiples(x, n)
+# print(result)  # Output: [5, 10, 15, 20]

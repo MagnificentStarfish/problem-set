@@ -444,10 +444,16 @@
 //   console.log("queueTime function is being executed.");
 
 //   try {
-//     if (n === 0) {
-//       console.log("Tills are down!!");
-//       return "Tills are down!!";
+//     if (!customers || customers.length === 0) {
+//       console.log("No customers in the queue.");
+//       return 0;
 //     }
+
+//     if (n <= 0) {
+//       console.log("Invalid number of tills.");
+//       return "Invalid number of tills.";
+//     }
+
 //     if (n === 1) {
 //       const total = customers.reduce((sum, time) => sum + time, 0);
 //       console.log("Total time for one till:", total);
@@ -469,8 +475,8 @@
 //   }
 // }
 
-// let customers = [1, 2, 3, 4, 100, 400, 555555, 4125, 124, 12, 3, 5];
-// let n = 4;
+// let customers = [2];
+// let n = -1;
 
 // queueTime(customers, n);
 
@@ -489,22 +495,70 @@
 //   foo()
 
 
-var isAnagram = function(test, original) {
-  let sortedTest = test.toLowerCase().split('').sort();
-  // If you do test.toLowerCase().split('').sort().join('');
-  // Then you can just compare sortedtest === sortedOriginal and not JSON.stringify it
-  let sortedOriginal = original.toLowerCase().split('').sort();
-  if (JSON.stringify(sortedTest) === JSON.stringify(sortedOriginal)) {
-    return true;
-  }
-  else {
-    return false;
-  }
-};
+// var isAnagram = function(test, original) {
+//   let sortedTest = test.toLowerCase().split('').sort();
+//   // If you do test.toLowerCase().split('').sort().join('');
+//   // Then you can just compare sortedtest === sortedOriginal and not JSON.stringify it
+//   let sortedOriginal = original.toLowerCase().split('').sort();
+//   if (JSON.stringify(sortedTest) === JSON.stringify(sortedOriginal)) {
+//     return true;
+//   }
+//   else {
+//     return false;
+//   }
+// };
 
 
-let test = 'bucket';
-let original = 'tuckeb';
+// let test = 'bucket';
+// let original = 'tuckeb';
 
-let result = isAnagram(test, original);
-console.log(result)
+// let result = isAnagram(test, original);
+// console.log(result)
+
+
+
+// function XO(str) {
+//   let xCounter = 0;
+// let oCounter = 0;
+// let splitString = str.toLowerCase().split('');
+// for (let i=0; i<splitString.length; i++) {
+//   if (splitString[i] === "o") {
+//     oCounter++;
+//   }
+//  if (splitString[i] === "x") {
+//    xCounter++;
+//  }
+// }
+// return xCounter === oCounter;
+// }
+
+
+// function XO(str) {
+//   let x = str.match(/x/gi);
+//   let o = str.match(/o/gi);
+//   return (x && x.length) === (o && o.length);
+// }
+
+
+// let str = 'xoxoXxoOortersdft'
+// console.log(XO(str));
+
+
+// var uniqueInOrder = function(iterable) {
+//   if (!iterable) {
+//     return [];
+//   }
+//   const str = typeof iterable === 'string' ? iterable : String(iterable);
+//   let result = [];
+//   for (let i = 0; i < str.length; i++) {
+//     if (str[i] !== str[i + 1]) {
+//       result.push(str[i]);
+//     }
+//   }
+//   console.log(result);
+//   return result;
+// }
+
+
+// let iterable = [1,2,2,3,4,4,4,5]
+// uniqueInOrder(iterable)
