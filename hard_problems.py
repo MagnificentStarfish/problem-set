@@ -52,6 +52,45 @@
 #     return highest_score, top_students[0] if len(top_students) == 1 else top_students
 
 
+
+# def best_student_and_score(answer_key):
+#     caris_correct = 0
+#     baz_correct = 0
+#     azami_correct = 0
+#     caris_answers = ["A","A","C","C","B","B"]
+#     baz_answers = ["B","A","B","C"]
+#     azami_answers = ["A","B","C"]
+
+
+#     answer_key_at_6_interval = [answer_key[x:x+6] for x in range(0, len(answer_key), 6)]
+#     for x in answer_key_at_6_interval:
+#         for i in range(min(6, len(x))):
+#             if x[i] == caris_answers[i]:
+#                 caris_correct += 1
+
+
+#     answer_key_at_4_interval = [answer_key[x:x+4] for x in range(0, len(answer_key), 4)]
+#     for x in answer_key_at_4_interval:
+#         for i in range(min(4,len(x))):
+#             if x[i] == baz_answers[i]:
+#                 baz_correct += 1
+
+#     answer_key_at_3_interval = [answer_key[x:x+3] for x in range(0, len(answer_key), 3)]
+#     for x in answer_key_at_3_interval:
+#         for i in range(min(3,len(x))):
+#             if x[i] == azami_answers[i]:
+#                 azami_correct += 1
+
+#     if caris_correct > baz_correct and caris_correct > azami_correct:
+#         return caris_correct, "Caris"
+#     elif baz_correct > caris_correct and baz_correct > azami_correct:
+#         return baz_correct, "Baz"
+#     else:
+#         return azami_correct, "Azami"
+
+
+
+
 # def calculate_num_letters(num_pushes):
 #     print(num_pushes)
 #     num_x = 0
