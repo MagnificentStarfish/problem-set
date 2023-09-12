@@ -610,41 +610,87 @@
 // printerError(s)
 
 
-function getPINs(observed) {
-    const adjacentDigits = {
-      '0': ['0', '8'],
-      '1': ['1', '2', '4'],
-      '2': ['1', '2', '3', '5'],
-      '3': ['2', '3', '6'],
-      '4': ['1', '4', '5', '7'],
-      '5': ['2', '4', '5', '6', '8'],
-      '6': ['3', '5', '6', '9'],
-      '7': ['4', '7', '8'],
-      '8': ['5', '7', '8', '9', '0'],
-      '9': ['6', '8', '9'],
-    };
+// function getPINs(observed) {
+//     const adjacentDigits = {
+//       '0': ['0', '8'],
+//       '1': ['1', '2', '4'],
+//       '2': ['1', '2', '3', '5'],
+//       '3': ['2', '3', '6'],
+//       '4': ['1', '4', '5', '7'],
+//       '5': ['2', '4', '5', '6', '8'],
+//       '6': ['3', '5', '6', '9'],
+//       '7': ['4', '7', '8'],
+//       '8': ['5', '7', '8', '9', '0'],
+//       '9': ['6', '8', '9'],
+//     };
 
-    const combos = [''];
+  //   const combos = [''];
 
-    for (let i = 0; i < observed.length; i++) {
-      const digit = observed[i];
-      const adjacent = adjacentDigits[digit];
+  //   for (let i = 0; i < observed.length; i++) {
+  //     const digit = observed[i];
+  //     const adjacent = adjacentDigits[digit];
 
-      const newCombos = [];
+  //     const newCombos = [];
 
-      for (const combo of combos) {
-        for (const adj of adjacent) {
-          newCombos.push(combo + adj);
-        }
-      }
+  //     for (const combo of combos) {
+  //       for (const adj of adjacent) {
+  //         newCombos.push(combo + adj);
+  //       }
+  //     }
 
-      combos.length = 0;
-      combos.push(...newCombos);
-    }
-  console.log(combos)
-    return combos;
-  }
+  //     combos.length = 0;
+  //     combos.push(...newCombos);
+  //   }
+  // console.log(combos)
+  //   return combos;
+  // }
 
 
-  let observed = "369"
-  getPINs(observed)
+  // let observed = "369"
+  // getPINs(observed)
+
+
+
+//   function twoSort(s) {
+//      let sortedWords = s.sort();
+//      let firstWord = sortedWords[0];
+//      let result = ''
+//      for (let i=0; i<firstWord.length-1; i++) {
+//        result += firstWord[i] + '***'
+//      }
+//      result += firstWord[firstWord.length-1];
+//    console.log(result);
+//      return result
+//    }
+// let s = ["bitcoin", "take", "over", "the", "world", "maybe", "who", "knows", "perhaps"]
+//   twoSort(s)
+
+
+  // function twoHighest(arr) {
+  //   if (arr.length === 0) {
+  //     return [];
+  //   }
+  //   if (arr.length === 1) {
+  //     return arr;
+  //   }
+  //   let newList = [];
+  //   let sortedList = arr.sort((a, b) => b - a);
+
+  //   console.log(sortedList);
+
+  //   newList.push(sortedList[0]);
+
+  //   for (let i = 1; i < sortedList.length; i++) {
+  //     if (sortedList[i] === sortedList[0]) {
+  //       continue;
+  //     } else {
+  //       newList.push(sortedList[i]);
+  //     }
+  //   }
+
+  //   console.log(newList);
+  //   return newList.slice(0, 2);
+  // }
+
+  // let arr = [1, 2, 2];
+  // twoHighest(arr)
