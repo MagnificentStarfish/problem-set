@@ -565,26 +565,86 @@
 
 
 
-function comp(array1, array2){
-    if (array1 === null || array2 === null || array1.length !== array2.length) {
-      return false;
-    }
+// function comp(array1, array2){
+//     if (!array1 || !array2 || array1.length !== array2.length) {
+//       return false;
+//     }
+//     let squaredArray = [];
 
-    const squaredArray = array1.map(x => x ** 2);
-    const sorted1 = squaredArray.sort((a, b) => a - b);
-    const sorted2 = array2.sort((a, b) => a - b);
+//     for (let i=0; i<array1.length; i++) {
+//       squaredArray.push(array1[i] ** 2)
+//     }
 
-    for (let i = 0; i < sorted1.length; i++) {
-      if (sorted1[i] !== sorted2[i]) {
-        console.log(false);
-        return false;
+//     let sorted1 = squaredArray.sort((a,b) => a-b);
+//     let sorted2 = array2.sort((a,b) => a-b);
+
+//     for (let i=0; i<sorted1.length; i++) {
+//       if (sorted1[i] !== sorted2[i]) {
+//         return false;
+//       }
+//       }
+//         return true;
+//       }
+
+
+// let array1 = [121, 144, 19, 161, 19, 144, 19, 11];
+// let array2 = [121, 14641, 20736, 361, 25921, 361, 20736, 361]
+// comp(array1, array2)
+
+
+
+// function printerError(s) {
+//     let errorList = "abcdefghijklm";
+//   let newList = s.split('');
+//   let errorCount = 0;
+//   for (let i=0; i<newList.length; i++) {
+//     if (!errorList.includes(newList[i])) {
+    //       errorCount ++;
+    //     }
+//   }
+//   console.log(errorCount + '/' + s.length);
+//   return errorCount + '/' + s.length;
+// }
+
+// let s = "aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz"
+// printerError(s)
+
+
+function getPINs(observed) {
+    const adjacentDigits = {
+      '0': ['0', '8'],
+      '1': ['1', '2', '4'],
+      '2': ['1', '2', '3', '5'],
+      '3': ['2', '3', '6'],
+      '4': ['1', '4', '5', '7'],
+      '5': ['2', '4', '5', '6', '8'],
+      '6': ['3', '5', '6', '9'],
+      '7': ['4', '7', '8'],
+      '8': ['5', '7', '8', '9', '0'],
+      '9': ['6', '8', '9'],
+    };
+
+    const combos = [''];
+
+    for (let i = 0; i < observed.length; i++) {
+      const digit = observed[i];
+      const adjacent = adjacentDigits[digit];
+
+      const newCombos = [];
+
+      for (const combo of combos) {
+        for (const adj of adjacent) {
+          newCombos.push(combo + adj);
+        }
       }
+
+      combos.length = 0;
+      combos.push(...newCombos);
     }
-    console.log(true);
-    return true;
+  console.log(combos)
+    return combos;
   }
 
 
-let array1 = [121, 144, 19, 161, 19, 144, 19, 11];
-let array2 = [121, 14641, 20736, 361, 25921, 361, 20736, 361]
-comp(array1, array2)
+  let observed = "369"
+  getPINs(observed)
