@@ -7,8 +7,7 @@
 //       return 'false';
 //     }
 //   }
-
-// const result = isPalindrome("Bob");
+// const result = isPalindrome("RAceCArt");
 // console.log(result);
 
 
