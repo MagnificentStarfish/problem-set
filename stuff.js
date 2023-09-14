@@ -665,31 +665,53 @@
 //   twoSort(s)
 
 
-  // function twoHighest(arr) {
-  //   if (arr.length === 0) {
-  //     return [];
-  //   }
-  //   if (arr.length === 1) {
-  //     return arr;
-  //   }
-  //   let newList = [];
-  //   let sortedList = arr.sort((a, b) => b - a);
+//   function twoHighest(arr) {
+//     if (arr.length === 0) {
+//       return [];
+//     }
+//     if (arr.length === 1) {
+//       return arr;
+//     }
+//     let newList = [];
+//     let sortedList = arr.sort((a, b) => b - a);
 
-  //   console.log(sortedList);
+//     console.log(sortedList);
 
-  //   newList.push(sortedList[0]);
+//     newList.push(sortedList[0]);
 
-  //   for (let i = 1; i < sortedList.length; i++) {
-  //     if (sortedList[i] === sortedList[0]) {
-  //       continue;
-  //     } else {
-  //       newList.push(sortedList[i]);
-  //     }
-  //   }
+//     for (let i = 1; i < sortedList.length; i++) {
+//       if (sortedList[i] === sortedList[0]) {
+//         continue;
+//       } else {
+//         newList.push(sortedList[i]);
+//       }
+//     }
 
-  //   console.log(newList);
-  //   return newList.slice(0, 2);
-  // }
+//     console.log(newList);
+//     return newList.slice(0, 2);
+//   }
 
-  // let arr = [1, 2, 2];
-  // twoHighest(arr)
+//   let arr = [1, 2, 2];
+//   twoHighest(arr)
+
+
+function charConcat(string) {
+  if (!string || string.length === 0) {
+    return null;
+  }
+
+  let count = 1;
+  let result = '';
+
+  const middle = Math.floor(string.length / 2);
+
+  for (let i = 0; i < middle; i++) {
+    result += string[i] + string[string.length - 1 - i] + count;
+    count++;
+  }
+  console.log(result);
+  return result;
+}
+
+let string = 'abcdef';
+charConcat(string)
