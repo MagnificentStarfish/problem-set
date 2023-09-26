@@ -695,23 +695,135 @@
 //   twoHighest(arr)
 
 
-function charConcat(string) {
-  if (!string || string.length === 0) {
-    return null;
-  }
+// function charConcat(string) {
+//   if (!string || string.length === 0) {
+//     return null;
+//   }
 
-  let count = 1;
-  let result = '';
+//   let count = 1;
+//   let result = '';
 
-  const middle = Math.floor(string.length / 2);
+//   const middle = Math.floor(string.length / 2);
 
-  for (let i = 0; i < middle; i++) {
-    result += string[i] + string[string.length - 1 - i] + count;
-    count++;
+//   for (let i = 0; i < middle; i++) {
+//     result += string[i] + string[string.length - 1 - i] + count; // you can do count.toString() instead of just count as well
+//     count++;
+//   }
+//   console.log(result);
+//   return result;
+// }
+
+// let string = 'abcdef';
+// charConcat(string)
+
+
+
+// function findEvenIndex(arr) {
+//   if (!arr) {
+//     return null;
+//   }
+//   if (arr.length === 0) {
+//     return -1;
+//   }
+
+//   let leftSum = 0;
+//   let rightSum = arr.reduce((acc, val) => acc + val, 0);
+//   let leftIndex = 0;
+
+//   if (arr.length === 1) {
+//     return -1;
+//   }
+
+//   while (leftIndex < arr.length) {
+//     rightSum -= arr[leftIndex];
+
+//     if (leftSum === rightSum) {
+//       console.log(leftIndex);
+//       return leftIndex;
+//     }
+
+//     leftSum += arr[leftIndex];
+//     leftIndex++;
+//   }
+//   console.log(-1);
+//   return -1;
+// }
+
+// let arr = [1,2,3,4,3,2,1];
+// findEvenIndex(arr)
+
+
+// function dirReduc(arr) {
+//   let N = 0;
+//   let S = 0;
+//   let E = 0;
+//   let W = 0;
+
+//   for (const direction of arr) {
+//     if (direction === 'NORTH') {
+//       N++;
+//     } else if (direction === 'SOUTH') {
+//       S++;
+//     } else if (direction === 'WEST') {
+//       W++;
+//     } else if (direction === 'EAST') {
+//       E++;
+//     }
+//   }
+
+//   let horizontal = E - W;
+//   let vertical = N - S;
+//   let finalPlacement = [];
+
+//   if (horizontal > 0) {
+//     finalPlacement.push('EAST '.repeat(horizontal).trim());
+//   } else if (horizontal < 0) {
+//     finalPlacement.push('WEST '.repeat(-horizontal).trim());
+//   }
+
+//   if (vertical > 0) {
+//     finalPlacement.push('NORTH '.repeat(vertical).trim());
+//   } else if (vertical < 0) {
+//     finalPlacement.push('SOUTH '.repeat(-vertical).trim());
+//   }
+
+//   return finalPlacement.join(' ').split(' ');
+// }
+
+// const arr = ["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST", "NORTH", "NORTH", "NORTH"];
+// console.log(dirReduc(arr));
+
+
+// function friend(friends){
+//   let result = [];
+//   for (let name of friends) {
+//     if (name.length === 4) {
+//       result.push(name);
+//     }
+//   }
+//   console.log(result);
+//   return result;
+// }
+
+// let friends = ["Ryan", "Kieran", "Mark", "Jimmy"]
+// friend(friends)
+
+
+function fizzbuzz(maximum) {
+  let result = [];
+  for (let i = 1; i <= maximum; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      result.push("fizzbuzz");
+    } else if (i % 3 === 0) {
+      result.push("fizz");
+    } else if (i % 5 === 0) {
+      result.push("buzz");
+    } else {
+      result.push(i);
+    }
   }
   console.log(result);
   return result;
 }
 
-let string = 'abcdef';
-charConcat(string)
+fizzbuzz(10);
