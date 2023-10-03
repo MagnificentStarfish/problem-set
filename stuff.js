@@ -809,21 +809,110 @@
 // friend(friends)
 
 
-function fizzbuzz(maximum) {
-  let result = [];
-  for (let i = 1; i <= maximum; i++) {
-    if (i % 3 === 0 && i % 5 === 0) {
-      result.push("fizzbuzz");
-    } else if (i % 3 === 0) {
-      result.push("fizz");
-    } else if (i % 5 === 0) {
-      result.push("buzz");
-    } else {
-      result.push(i);
-    }
-  }
-  console.log(result);
-  return result;
-}
+// function fizzbuzz(maximum) {
+//   let result = [];
+//   for (let i = 1; i <= maximum; i++) {
+//     if (i % 3 === 0 && i % 5 === 0) {
+//       result.push("fizzbuzz");
+//     } else if (i % 3 === 0) {
+//       result.push("fizz");
+//     } else if (i % 5 === 0) {
+//       result.push("buzz");
+//     } else {
+//       result.push(i);
+//     }
+//   }
+//   console.log(result);
+//   return result;
+// }
 
-fizzbuzz(10);
+// fizzbuzz(10);
+
+
+// function howManyLightsabersDoYouOwn(name) {
+//   console.log("Name:", name);
+//   return name === "Zach" ? 18 : 0;
+// }
+
+// const result = howManyLightsabersDoYouOwn("Zach");
+// console.log("Result:", result);
+
+
+// function expandedForm(num) {
+//   console.log(num);
+//   if (!num) {
+//     return null;
+//   }
+//   let result = '';
+//   let splitNum = num.toString().split('');
+
+//   let values = splitNum.length - 1;
+
+// for (let integerNumber of splitNum) {
+//   if (integerNumber !== '0') {
+//     result += integerNumber + '0'.repeat(values) + ' + ';
+//   }
+//   values--;
+// }
+
+
+//   // Remove the trailing ' + ' from the result
+//   result = result.slice(0, -3);
+
+//   console.log(result);
+//   return result;
+// }
+
+// let num = 70304;
+// expandedForm(num);
+
+
+// function rowWeights(array){
+//   let teamOne = 0;
+//   let teamTwo = 0;
+//   for (let i=0; i<array.length; i++) {
+//   if (i%2===0) {
+//     teamOne += array[i];
+//   }
+//     else {
+//       teamTwo += array[i]
+//     }
+//   }
+//   console.log([teamOne, teamTwo]);
+//   return [teamOne, teamTwo]
+// }
+
+// let array = [50,60,70,80];
+// rowWeights(array)
+
+
+// function warnTheSheep(queue) {
+//   const wolfIndex = queue.findIndex((animal) => animal === 'wolf');
+//   const sheepInFront = queue.length - wolfIndex - 1;
+
+//   if (wolfIndex === queue.length - 1) {
+//     return "Pls go away and stop eating my sheep";
+//   } else {
+//     return `Oi! Sheep number ${sheepInFront}! You are about to be eaten by a wolf!`;
+//   }
+// }
+
+// const queue = ["sheep", "sheep", "sheep", "wolf", "sheep"];
+// console.log(warnTheSheep(queue));
+
+
+// function sumOfMinimums(arr) {
+//   let sum = 0;
+//   for (let row of arr) {
+//     const minInRow = Math.min(...row);
+//     sum += minInRow;
+//   }
+//   return sum;
+// }
+
+// const arr = [
+//   [1, 2, 3, 4, 5], // minimum value of row is 1
+//   [5, 6, 7, 8, 9], // minimum value of row is 5
+//   [20, 21, 34, 56, 100], // minimum value of row is 20
+// ];
+// console.log(sumOfMinimums(arr));
