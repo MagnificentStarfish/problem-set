@@ -905,6 +905,7 @@
 //   let sum = 0;
 //   for (let row of arr) {
 //     const minInRow = Math.min(...row);
+      // name = 'floyd'
 //     sum += minInRow;
 //   }
 //   return sum;
@@ -916,3 +917,54 @@
 //   [20, 21, 34, 56, 100], // minimum value of row is 20
 // ];
 // console.log(sumOfMinimums(arr));
+
+
+// function sayHello( names, city, state ) {
+//   console.log(`Hello, ${names.join(' ')}! Welcome to ${city}, ${state}!`);
+//   return `Hello, ${names.join(' ')}! Welcome to ${city}, ${state}!`;
+//   }
+
+//   let names = ['John', 'Smith'];
+//   let city = 'Phoenix';
+//   let state = 'Arizona';
+//   sayHello(names, city, state)
+
+
+// function array(arr) {
+//   if (arr.length >= 3) {
+//     let result = arr.slice(1, -1).join(" ");
+//     console.log(result);
+//     return result;
+//   } else {
+//     console.log(null);
+//     return null;
+//   }
+// }
+
+// let arr = [1, 2, 3, 4, 5];
+// array(arr);
+
+
+// function getEvenNumbers(numbersArray){
+//   let evenList = [];
+//     for (let i=0; i<numbersArray.length; i++) {
+//       if (numbersArray[i] %2==0) {
+//         evenList.push(numbersArray[i])
+//       }
+//     }
+//     console.log(evenList);
+//     return evenList;
+//   }
+
+//   let numbersArray = [1,2,3,4,5,6];
+//   getEvenNumbers(numbersArray)
+
+
+  function getEvenNumbers(numbersArray){
+    const result = numbersArray.filter (number => number % 2 ===0);
+    console.log(result);
+    return result;
+  }
+
+  let numbersArray = [1,2,3,4,5,6];
+  getEvenNumbers(numbersArray)
