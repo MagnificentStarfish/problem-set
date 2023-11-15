@@ -960,11 +960,67 @@
 //   getEvenNumbers(numbersArray)
 
 
-  function getEvenNumbers(numbersArray){
-    const result = numbersArray.filter (number => number % 2 ===0);
-    console.log(result);
-    return result;
-  }
+  // function getEvenNumbers(numbersArray){
+  //   const result = numbersArray.filter (number => number % 2 ===0);
+  //   console.log(result);
+  //   return result;
+  // }
 
-  let numbersArray = [1,2,3,4,5,6];
-  getEvenNumbers(numbersArray)
+  // let numbersArray = [1,2,3,4,5,6];
+  // getEvenNumbers(numbersArray)
+
+
+  // function count(string) {
+  //   if (string.length === 0) {
+  //     return {};
+  //   }
+  //     const charCount = {};
+  //     for (let element of string) {
+  //       if (element !== ',') {
+  //       if (charCount[element]) {
+  //         charCount[element]++;
+  //       }
+  //       else {
+  //         charCount[element] = 1;
+  //       }
+  //     }
+  //       }
+  //     console.log (charCount);
+  //     return charCount;
+  //   }
+
+  // let string = 'a,b,a,b,b,r,f,w,e,d,f,r,t,g,f,d,r,e,s,w,a,a,a,a,a,a,f,e,w,d,f,r,e,d,f,r,f,d,s,w,s'
+  // count(string)
+
+  // const quarterOf = (month) => {
+  //   if (month <= 3) {
+  //     return 1
+  //   } else if (month <= 6) {
+  //     return 2
+  //   } else if (month <= 9) {
+  //     return 3
+  //   } else if (month <= 12) {
+  //     return 4
+  //   }
+
+  // }
+
+  // let month = 7;
+  // console.log(quarterOf(month))
+
+//   function largestPairSum (numbers) {
+//     let pairList = numbers.sort((a,b) => b-a);
+//     return pairList[0] + pairList[1];
+//   }
+
+// let numbers = [12,42,52,53,32,13,2,44];
+// console.log(largestPairSum(numbers))
+
+
+var findAverage = function (nums) {
+  let total = nums.reduce((acc, num) => acc + num, 0);
+  return total / nums.length;
+}
+
+let nums = [1,4,5,2,4,2,4,5,6,10]
+console.log(findAverage(nums))
