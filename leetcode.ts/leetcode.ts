@@ -36,3 +36,5 @@ function majorityElement(nums: number[]): number {
     }
     return result;
 };
+
+test line
