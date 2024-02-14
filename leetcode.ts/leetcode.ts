@@ -62,15 +62,104 @@
 // console.log([1, 2, 3].last()); // 3
 
 
-type Fn = (accum: number, curr: number) => number
+// type Fn = (accum: number, curr: number) => number
 
-function reduce(nums: number[], fn: Fn, init: number): number {
-    if (nums.length == 0) {
-        return init;
-    }
-    let val = init;
-    for (let i = 0; i < nums.length; i++) {
-        val = fn(val, nums[i]);
-    }
-    return val;
-}
+// function reduce(nums: number[], fn: Fn, init: number): number {
+//     if (nums.length == 0) {
+//         return init;
+//     }
+//     let val = init;
+//     for (let i = 0; i < nums.length; i++) {
+//         val = fn(val, nums[i]);
+//     }
+//     console.log(val);
+//     return val;
+// }
+
+// reduce([1, 2, 3, 4, 5], (accum, curr) => accum + curr, 0); // 15
+// reduce([1, 2, 3, 5, 19], (accum, curr) => accum * curr, 1); // 570
+
+
+// type Fn = (n: number, i: number) => any
+
+// function filter(arr: number[], fn: Fn): number[] {
+//     let result = [];
+//     for (let i=0; i<arr.length; i++) {
+//         let fnResult: any = fn(arr[i], i);
+//         if ((typeof fnResult === 'boolean' && fnResult) || (typeof fnResult === 'number' && fnResult !== 0)) {
+//             result.push(arr[i]);
+//         }
+//     }
+//     return result;
+// };
+
+
+// console.log(filter([1, 2, 3, 4, 5], (n, i) => n % 2 === 0)); // [2, 4]
+
+
+// type ToBeOrNotToBe = {
+//     toBe: (val: any) => boolean;
+//     notToBe: (val: any) => boolean;
+// };
+
+// function expect(val: any): ToBeOrNotToBe {
+//     return {
+//         toBe: (otherVal: any) => {
+//             if (otherVal === val) {
+//                 return true;
+//             } else {
+//                 throw new Error("Not Equal");
+//             }
+//         },
+//         notToBe: (otherVal: any) => {
+//             if (otherVal !== val) {
+//                 return true;
+//             } else {
+//                 throw new Error("Equal");
+//             }
+//         }
+//     };
+// };
+
+// expect(1).toBe(1); // true
+// expect(1).notToBe(2); // true
+// try {
+//     expect(1).toBe(2); // This will throw an error
+// } catch (error) {
+//     console.error(error.message); // This will log "Not Equal"
+// }
+// try {
+//     expect(1).notToBe(1); // This will throw an error
+// } catch (error) {
+//     console.error(error.message); // This will log "Equal"
+// }
+
+
+type ToBeOrNotToBe = {
+    toBe: (expected: any) => boolean;
+    notToBe: (unexpected: any) => boolean;
+};
+
+function expect(actual: any): ToBeOrNotToBe {
+    return {
+        toBe: (expected: any) => {
+            if (expected === actual) {
+                console.log ("true");
+                return true;
+            } else {
+                throw new Error("Not Equal");
+            }
+        },
+        notToBe: (unexpected: any) => {
+            if (unexpected !== actual) {
+                console.log("true");
+                return true;
+            } else {
+                throw new Error("Equal");
+            }
+        }
+    };
+};
+
+expect(1).toBe(1); // true
+expect(1).notToBe(2); // true
