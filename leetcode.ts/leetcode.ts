@@ -42,16 +42,35 @@
 // sleep(2000).then(() => console.log('Slept for 2 seconds'));
 
 
-declare global {
-    interface Array<T> {
-        last(): T | -1;
-    }
-}
 
-Array.prototype.last = function() {
-    if (this.length > 0) {
-        return this[this.length - 1];
-    } else {
-        return -1;
+// declare global { // This is global scope and allows me to add a method to the Array prototype
+//     interface Array<T> { // This is discouraged because it's modifying the global scope
+//         last(): T | -1; // This is a method that returns the last element of the array or -1 if the array is empty
+//     }
+// }
+
+// Array.prototype.last = function() {
+//     if (this.length > 0) {
+//         return this[this.length - 1];
+//     } else {
+//         return -1;
+//     }
+// }
+
+// export {}; // This is to avoid the error "Cannot redeclare block-scoped variable 'Array'." because I'm redeclaring the Array interface
+
+// console.log([1, 2, 3].last()); // 3
+
+
+type Fn = (accum: number, curr: number) => number
+
+function reduce(nums: number[], fn: Fn, init: number): number {
+    if (nums.length == 0) {
+        return init;
     }
+    let val = init;
+    for (let i = 0; i < nums.length; i++) {
+        val = fn(val, nums[i]);
+    }
+    return val;
 }
