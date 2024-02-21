@@ -135,31 +135,61 @@
 // }
 
 
-type ToBeOrNotToBe = {
-    toBe: (expected: any) => boolean;
-    notToBe: (unexpected: any) => boolean;
-};
+// type ToBeOrNotToBe = {
+//     toBe: (expected: any) => boolean;
+//     notToBe: (unexpected: any) => boolean;
+// };
 
-function expect(actual: any): ToBeOrNotToBe {
-    return {
-        toBe: (expected: any) => {
-            if (expected === actual) {
-                console.log ("true");
-                return true;
-            } else {
-                throw new Error("Not Equal");
-            }
-        },
-        notToBe: (unexpected: any) => {
-            if (unexpected !== actual) {
-                console.log("true");
-                return true;
-            } else {
-                throw new Error("Equal");
-            }
-        }
-    };
-};
+// function expect(actual: any): ToBeOrNotToBe {
+//     return {
+//         toBe: (expected: any) => {
+//             if (expected === actual) {
+//                 console.log ("true");
+//                 return true;
+//             } else {
+//                 throw new Error("Not Equal");
+//             }
+//         },
+//         notToBe: (unexpected: any) => {
+//             if (unexpected !== actual) {
+//                 console.log("true");
+//                 return true;
+//             } else {
+//                 throw new Error("Equal");
+//             }
+//         }
+//     };
+// };
 
-expect(1).toBe(1); // true
-expect(1).notToBe(2); // true
+// expect(1).toBe(1); // true
+// expect(1).notToBe(2); // true
+
+
+// type Counter = {
+//     increment: () => number,
+//     decrement: () => number,
+//     reset: () => number,
+// }
+
+// function createCounter(init: number): Counter {
+//     let count = init;
+//     return {
+//         increment: () => ++count,
+//         decrement: () => --count,
+//         reset: () => count = init
+//     };
+// };
+
+// let counter = createCounter(10);
+// console.log(counter.increment()); // 11
+// console.log(counter.increment()); // 12
+
+
+function map(arr: number[], fn: (n: number, i: number) => number): number[] {
+    let result: number[] = [];
+    for (let i = 0; i < arr.length; i++) {
+        let temp = fn(arr[i], i);
+        result.push(temp);
+    }
+    return result;
+};
