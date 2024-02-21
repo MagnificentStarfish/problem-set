@@ -185,11 +185,90 @@
 // console.log(counter.increment()); // 12
 
 
-function map(arr: number[], fn: (n: number, i: number) => number): number[] {
-    let result: number[] = [];
-    for (let i = 0; i < arr.length; i++) {
-        let temp = fn(arr[i], i);
-        result.push(temp);
-    }
-    return result;
-};
+// function map(arr: number[], fn: (n: number, i: number) => number): number[] {
+//     let result: number[] = [];
+//     for (let i = 0; i < arr.length; i++) {
+//         let temp = fn(arr[i], i);
+//         result.push(temp);
+//     }
+//     return result;
+// };
+
+// console.log(map([1, 2, 3, 4, 5], (n, i) => n * 2)); // [2, 4, 6, 8, 10]
+// console.log(map([1, 2, 3, 4, 5], (n, i) => n + 2)); // [3, 4, 5, 6, 7]
+
+
+// type F = (x: number) => number;
+
+// function compose(functions: F[]): F {
+//     return (x: number) => {
+//         let result = x;
+//         for (let i = functions.length - 1; i >= 0; i--) {
+//             result = functions[i](result);
+//         }
+//         return result;
+//     };
+// };
+
+// let addTwo = (x: number) => x + 2;
+// let multiplyByThree = (x: number) => x * 3;
+// let addTwoThenMultiplyByThree = compose([addTwo, multiplyByThree]);
+// console.log(addTwoThenMultiplyByThree(5)); // 21
+// console.log(addTwoThenMultiplyByThree(10)); // 36
+
+
+// function twoSum(nums: number[], target: number): number[] | undefined{
+//     for (let i=0; i<nums.length; i++) {
+//         for (let j = i + 1; j<nums.length; j++) {
+//             if (nums[i] + nums[j] == target) {
+//                 return [i, j];
+//             }
+//         }
+//     }
+// };
+
+// console.log(twoSum([2, 7, 11, 15], 9)); // [0, 1]
+// console.log(twoSum([3, 2, 4], 6)); // [1, 2]
+
+
+// function isPalindrome(x: number): boolean {
+//     let numString = x.toString();
+//     let splitString = numString.split('').reverse().join('');
+//     return numString === splitString;
+// };
+
+// console.log(isPalindrome(121)); // true
+// console.log(isPalindrome(-121)); // false
+// console.log(isPalindrome(10)); // false
+// console.log(isPalindrome(-101)); // false
+
+
+// function threeSum(nums: number[]): number[][] {
+//     nums.sort((a, b) => a - b);
+//     let result: number[][] = [];
+//     for (let i = 0; i < nums.length - 2; i++) {
+//         if (i > 0 && nums[i] === nums[i - 1]) continue;
+//         let j = i + 1;
+//         let k = nums.length - 1;
+//         while (j < k) {
+//             let sum = nums[i] + nums[j] + nums[k];
+//             if (sum === 0) {
+//                 result.push([nums[i], nums[j], nums[k]]);
+//                 while (nums[j] === nums[j + 1]) j++;
+//                 while (nums[k] === nums[k - 1]) k--;
+//                 j++;
+//                 k--;
+//             } else if (sum < 0) {
+//                 j++;
+//             } else {
+//                 k--;
+//             }
+//         }
+//     }
+//     return result;
+// };
+
+// console.log(threeSum([-1, 0, 1, 2, -1, -4])); // [[-1, -1, 2], [-1, 0, 1]]
+// console.log(threeSum([])); // []
+// console.log(threeSum([0])); // []
+// console.log(threeSum([0, 0, 0, 0])); // [[0, 0, 0]]
