@@ -332,28 +332,73 @@
 // console.log(reverseVowels('leetcode')); // 'leotcede'
 
 
-function reverseVowels(s: string): string {
-    let vowels = [];
-    let result = '';
+// function reverseVowels(s: string): string {
+//     let vowels = [];
+//     let result = '';
 
-    for (let i = 0; i < s.length; i++) {
-        if ('aeiouAEIOU'.includes(s[i])) {
-            vowels.push(s[i]);
-        }
-    }
+//     for (let i = 0; i < s.length; i++) {
+//         if ('aeiouAEIOU'.includes(s[i])) {
+//             vowels.push(s[i]);
+//         }
+//     }
 
-    vowels.reverse();
+//     vowels.reverse();
 
-    for (let i = 0; i < s.length; i++) {
-        if ('aeiouAEIOU'.includes(s[i])) {
-            result += vowels.shift();
-        } else {
-            result += s[i];
-        }
-    }
+//     for (let i = 0; i < s.length; i++) {
+//         if ('aeiouAEIOU'.includes(s[i])) {
+//             result += vowels.shift();
+//         } else {
+//             result += s[i];
+//         }
+//     }
 
-    return result;
+//     return result;
+// }
+
+// console.log(reverseVowels('hello')); // 'holle'
+// console.log(reverseVowels('leetcode')); // 'leotcede'
+
+
+// function reverseWords(s: string): string {
+//     let result: string = '';
+//     let splitString = s.split(' ');
+
+//     console.log(splitString);
+
+//     let reversedString = splitString.reverse().join( ' ');
+
+//     console.log(reversedString);
+//     return reversedString;
+// };
+
+// //     for (let i=0; i<reversedString.length; i++) {
+// //         result += reversedString[i] + ' ';
+// //     }
+// //     console.log(result);
+// //     return result;
+// // };
+
+// reverseWords ('the sky is blue'); // 'blue is sky the'
+
+
+function fizzBuzz(n: number): (string | number)[] {
+	const result: (string | number)[] = [];
+	for (let i = 1; i <= n; i++) {
+		if (i % 3 === 0 && i % 5 === 0) {
+			result.push('fizzbuzz');
+		} else if (i % 3 === 0) {
+			result.push('fizz');
+		} else if (i % 5 === 0) {
+			result.push('buzz');
+		} else {
+			result.push(i);
+		}
+	}
+    console.log(result);
+	return result;
 }
 
-console.log(reverseVowels('hello')); // 'holle'
-console.log(reverseVowels('leetcode')); // 'leotcede'
+console.log(fizzBuzz(5));
+console.log(fizzBuzz(15));
+console.log(fizzBuzz(3));
+console.log(fizzBuzz(7));
