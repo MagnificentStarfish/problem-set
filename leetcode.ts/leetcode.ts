@@ -449,3 +449,4 @@ console.log(minimumCost('abc', 'bcd', ['a', 'b', 'c'], ['b', 'c', 'd'], [1, 2, 3
 console.log(minimumCost('abc', 'acd', ['a', 'b'], ['c', 'd'], [1, 2])); // -1
 console.log(minimumCost('xyz', 'xyz', [], [], [])); // 0
 console.log(minimumCost('abc', 'bcd', ['a', 'b', 'c'], ['b', 'c', 'd'], [1, 2, 3])); // 6
+console.log(minimumCost('abc', 'bcd', ['a', 'b', 'c'], ['b', 'c', 'd'], [1, 2, 3])); // 6
