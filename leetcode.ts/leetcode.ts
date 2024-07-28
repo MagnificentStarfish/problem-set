@@ -381,24 +381,71 @@
 // reverseWords ('the sky is blue'); // 'blue is sky the'
 
 
-function fizzBuzz(n: number): (string | number)[] {
-	const result: (string | number)[] = [];
-	for (let i = 1; i <= n; i++) {
-		if (i % 3 === 0 && i % 5 === 0) {
-			result.push('fizzbuzz');
-		} else if (i % 3 === 0) {
-			result.push('fizz');
-		} else if (i % 5 === 0) {
-			result.push('buzz');
-		} else {
-			result.push(i);
-		}
-	}
-    console.log(result);
-	return result;
+// function fizzBuzz(n: number): (string | number)[] {
+// 	const result: (string | number)[] = [];
+// 	for (let i = 1; i <= n; i++) {
+// 		if (i % 3 === 0 && i % 5 === 0) {
+// 			result.push('fizzbuzz');
+// 		} else if (i % 3 === 0) {
+// 			result.push('fizz');
+// 		} else if (i % 5 === 0) {
+// 			result.push('buzz');
+// 		} else {
+// 			result.push(i);
+// 		}
+// 	}
+//     console.log(result);
+// 	return result;
+// }
+
+// console.log(fizzBuzz(5));
+// console.log(fizzBuzz(15));
+// console.log(fizzBuzz(3));
+// console.log(fizzBuzz(7));
+
+
+function minimumCost(source: string, target: string, original: string[], changed: string[], cost: number[]): number {
+    const INF = Number.MAX_SAFE_INTEGER;
+    const n = source.length;
+
+    const minCost: number[][] = Array.from({ length: 26 }, () => Array(26).fill(INF));
+
+    for (let i = 0; i < original.length; i++) {
+        const from = original[i].charCodeAt(0) - 'a'.charCodeAt(0);
+        const to = changed[i].charCodeAt(0) - 'a'.charCodeAt(0);
+        minCost[from][to] = Math.min(minCost[from][to], cost[i]);
+    }
+
+    for (let i = 0; i < 26; i++) {
+        minCost[i][i] = 0;
+    }
+
+    for (let k = 0; k < 26; k++) {
+        for (let i = 0; i < 26; i++) {
+            for (let j = 0; j < 26; j++) {
+                if (minCost[i][k] < INF && minCost[k][j] < INF) {
+                    minCost[i][j] = Math.min(minCost[i][j], minCost[i][k] + minCost[k][j]);
+                }
+            }
+        }
+    }
+
+    let totalCost = 0;
+
+    for (let i = 0; i < n; i++) {
+        const from = source[i].charCodeAt(0) - 'a'.charCodeAt(0);
+        const to = target[i].charCodeAt(0) - 'a'.charCodeAt(0);
+        if (minCost[from][to] === INF) {
+            return -1;
+        }
+        totalCost += minCost[from][to];
+    }
+
+    return totalCost;
 }
 
-console.log(fizzBuzz(5));
-console.log(fizzBuzz(15));
-console.log(fizzBuzz(3));
-console.log(fizzBuzz(7));
+
+console.log(minimumCost('abc', 'bcd', ['a', 'b', 'c'], ['b', 'c', 'd'], [1, 2, 3])); // 6
+console.log(minimumCost('abc', 'acd', ['a', 'b'], ['c', 'd'], [1, 2])); // -1
+console.log(minimumCost('xyz', 'xyz', [], [], [])); // 0
+console.log(minimumCost('abc', 'bcd', ['a', 'b', 'c'], ['b', 'c', 'd'], [1, 2, 3])); // 6
