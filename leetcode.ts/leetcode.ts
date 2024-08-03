@@ -404,50 +404,70 @@
 // console.log(fizzBuzz(7));
 
 
-function minimumCost(source: string, target: string, original: string[], changed: string[], cost: number[]): number {
-    const INF = Number.MAX_SAFE_INTEGER;
-    const n = source.length;
+// function minimumCost(source: string, target: string, original: string[], changed: string[], cost: number[]): number {
+//     const INF = Number.MAX_SAFE_INTEGER;
+//     const n = source.length;
 
-    const minCost: number[][] = Array.from({ length: 26 }, () => Array(26).fill(INF));
+//     const minCost: number[][] = Array.from({ length: 26 }, () => Array(26).fill(INF));
 
-    for (let i = 0; i < original.length; i++) {
-        const from = original[i].charCodeAt(0) - 'a'.charCodeAt(0);
-        const to = changed[i].charCodeAt(0) - 'a'.charCodeAt(0);
-        minCost[from][to] = Math.min(minCost[from][to], cost[i]);
+//     for (let i = 0; i < original.length; i++) {
+//         const from = original[i].charCodeAt(0) - 'a'.charCodeAt(0);
+//         const to = changed[i].charCodeAt(0) - 'a'.charCodeAt(0);
+//         minCost[from][to] = Math.min(minCost[from][to], cost[i]);
+//     }
+
+//     for (let i = 0; i < 26; i++) {
+//         minCost[i][i] = 0;
+//     }
+
+//     for (let k = 0; k < 26; k++) {
+//         for (let i = 0; i < 26; i++) {
+//             for (let j = 0; j < 26; j++) {
+//                 if (minCost[i][k] < INF && minCost[k][j] < INF) {
+//                     minCost[i][j] = Math.min(minCost[i][j], minCost[i][k] + minCost[k][j]);
+//                 }
+//             }
+//         }
+//     }
+
+//     let totalCost = 0;
+
+//     for (let i = 0; i < n; i++) {
+//         const from = source[i].charCodeAt(0) - 'a'.charCodeAt(0);
+//         const to = target[i].charCodeAt(0) - 'a'.charCodeAt(0);
+//         if (minCost[from][to] === INF) {
+//             return -1;
+//         }
+//         totalCost += minCost[from][to];
+//     }
+
+//     return totalCost;
+// }
+
+
+// console.log(minimumCost('abc', 'bcd', ['a', 'b', 'c'], ['b', 'c', 'd'], [1, 2, 3])); // 6
+// console.log(minimumCost('abc', 'acd', ['a', 'b'], ['c', 'd'], [1, 2])); // -1
+// console.log(minimumCost('xyz', 'xyz', [], [], [])); // 0
+// console.log(minimumCost('abc', 'bcd', ['a', 'b', 'c'], ['b', 'c', 'd'], [1, 2, 3])); // 6
+
+
+function canBeEqual(target: number[], arr: number[]): boolean {
+    if (target.length !== arr.length) {
+        return false;
     }
 
-    for (let i = 0; i < 26; i++) {
-        minCost[i][i] = 0;
-    }
+    let firstArray = target.sort((a, b) => a - b);
+    let secondArray = arr.sort((a, b) => a - b);
 
-    for (let k = 0; k < 26; k++) {
-        for (let i = 0; i < 26; i++) {
-            for (let j = 0; j < 26; j++) {
-                if (minCost[i][k] < INF && minCost[k][j] < INF) {
-                    minCost[i][j] = Math.min(minCost[i][j], minCost[i][k] + minCost[k][j]);
-                }
-            }
+    for (let i = 0; i < target.length; i++) {
+        if (firstArray[i] !== secondArray[i]) {
+            return false;
         }
     }
-
-    let totalCost = 0;
-
-    for (let i = 0; i < n; i++) {
-        const from = source[i].charCodeAt(0) - 'a'.charCodeAt(0);
-        const to = target[i].charCodeAt(0) - 'a'.charCodeAt(0);
-        if (minCost[from][to] === INF) {
-            return -1;
-        }
-        totalCost += minCost[from][to];
-    }
-
-    return totalCost;
+    return true;
 }
 
-
-console.log(minimumCost('abc', 'bcd', ['a', 'b', 'c'], ['b', 'c', 'd'], [1, 2, 3])); // 6
-console.log(minimumCost('abc', 'acd', ['a', 'b'], ['c', 'd'], [1, 2])); // -1
-console.log(minimumCost('xyz', 'xyz', [], [], [])); // 0
-console.log(minimumCost('abc', 'bcd', ['a', 'b', 'c'], ['b', 'c', 'd'], [1, 2, 3])); // 6
-console.log(minimumCost('abc', 'bcd', ['a', 'b', 'c'], ['b', 'c', 'd'], [1, 2, 3])); // 6
-console.log(minimumCost('abc', 'bcd', ['a', 'b', 'c'], ['b', 'c', 'd'], [1, 2, 3])); // 6
+console.log(canBeEqual([1, 2, 3, 4], [2, 4, 1, 3])); // true
+console.log(canBeEqual([7], [7])); // true
+console.log(canBeEqual([1, 12], [12, 1])); // true
+console.log(canBeEqual([3, 7, 9], [3, 7, 11])); // false
