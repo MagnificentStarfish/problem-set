@@ -451,23 +451,40 @@
 // console.log(minimumCost('abc', 'bcd', ['a', 'b', 'c'], ['b', 'c', 'd'], [1, 2, 3])); // 6
 
 
-function canBeEqual(target: number[], arr: number[]): boolean {
-    if (target.length !== arr.length) {
-        return false;
-    }
+// function canBeEqual(target: number[], arr: number[]): boolean {
+//     if (target.length !== arr.length) {
+//         return false;
+//     }
 
-    let firstArray = target.sort((a, b) => a - b);
-    let secondArray = arr.sort((a, b) => a - b);
+//     let firstArray = target.sort((a, b) => a - b);
+//     let secondArray = arr.sort((a, b) => a - b);
 
-    for (let i = 0; i < target.length; i++) {
-        if (firstArray[i] !== secondArray[i]) {
-            return false;
+//     for (let i = 0; i < target.length; i++) {
+//         if (firstArray[i] !== secondArray[i]) {
+//             return false;
+//         }
+//     }
+//     return true;
+// }
+
+// console.log(canBeEqual([1, 2, 3, 4], [2, 4, 1, 3])); // true
+// console.log(canBeEqual([7], [7])); // true
+// console.log(canBeEqual([1, 12], [12, 1])); // true
+// console.log(canBeEqual([3, 7, 9], [3, 7, 11])); // false
+
+
+
+function countSeniors(details: string[]): number {
+    let count = 0;
+    for (let i=0; i<details.length; i++) {
+        let age = parseInt(details[i].split('').slice(11,13).join(''));
+        if (age > 60) {
+            count++;
         }
     }
-    return true;
-}
+    return count;
+};
 
-console.log(canBeEqual([1, 2, 3, 4], [2, 4, 1, 3])); // true
-console.log(canBeEqual([7], [7])); // true
-console.log(canBeEqual([1, 12], [12, 1])); // true
-console.log(canBeEqual([3, 7, 9], [3, 7, 11])); // false
+
+console.log(countSeniors(["7868190130M7522","5303914400F9211","9273338290F4010"])); // 2
+console.log(countSeniors(["7868190130M7522","5303914400F9211","9273338290F9010","9273338290F6110"])); // 2
