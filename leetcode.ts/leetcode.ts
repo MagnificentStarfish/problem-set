@@ -474,17 +474,42 @@
 
 
 
+// function countSeniors(details: string[]): number {
+//     let count = 0;
+//     for (let i=0; i<details.length; i++) {
+//         let age = parseInt(details[i].split('').slice(11,13).join(''));
+//         if (age > 60) {
+//             count++;
+//         }
+//     }
+//     return count;
+// };
+
+
+// console.log(countSeniors(["7868190130M7522","5303914400F9211","9273338290F4010"]));
+// console.log(countSeniors(["7868190130M7522","5303914400F9211","9273338290F9010","9273338290F6110"]));
+
+
 function countSeniors(details: string[]): number {
     let count = 0;
-    for (let i=0; i<details.length; i++) {
-        let age = parseInt(details[i].split('').slice(11,13).join(''));
+    for (let i = 0; i < details.length; i++) {
+        let age: number;
+        if (details[i].length === 15) {
+            age = parseInt(details[i].slice(11, 13));
+        } else if (details[i].length === 16) {
+            age = parseInt(details[i].slice(11, 14));
+        } else if (details[i].length === 14) {
+            continue;
+        } else {
+            throw new Error("Unexpected details length");
+        }
         if (age > 60) {
             count++;
         }
     }
     return count;
-};
+}
 
-
-console.log(countSeniors(["7868190130M7522","5303914400F9211","9273338290F4010"])); // 2
-console.log(countSeniors(["7868190130M7522","5303914400F9211","9273338290F9010","9273338290F6110"])); // 2
+console.log(countSeniors(["7868190130M7522", "5303914400F9211", "9273338290F410"])); // 2 (last entry is 4 years old)
+console.log(countSeniors(["7868190130M7522", "5303914400F9211", "9273338290F9010", "9273338290F6110"])); // 4
+console.log(countSeniors(["7868190130M7522", "5303914400F9211", "9273338290F10210"])); // 3 (assuming the last entry is 102 years old)
