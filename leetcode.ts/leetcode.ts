@@ -490,26 +490,43 @@
 // console.log(countSeniors(["7868190130M7522","5303914400F9211","9273338290F9010","9273338290F6110"]));
 
 
-function countSeniors(details: string[]): number {
-    let count = 0;
-    for (let i = 0; i < details.length; i++) {
-        let age: number;
-        if (details[i].length === 15) {
-            age = parseInt(details[i].slice(11, 13));
-        } else if (details[i].length === 16) {
-            age = parseInt(details[i].slice(11, 14));
-        } else if (details[i].length === 14) {
-            continue;
-        } else {
-            throw new Error("Unexpected details length");
-        }
-        if (age > 60) {
-            count++;
+// function countSeniors(details: string[]): number {
+//     let count = 0;
+//     for (let i = 0; i < details.length; i++) {
+//         let age: number;
+//         if (details[i].length === 15) {
+//             age = parseInt(details[i].slice(11, 13));
+//         } else if (details[i].length === 16) {
+//             age = parseInt(details[i].slice(11, 14));
+//         } else if (details[i].length === 14) {
+//             continue;
+//         } else {
+//             throw new Error("Unexpected details length");
+//         }
+//         if (age > 60) {
+//             count++;
+//         }
+//     }
+//     return count;
+// }
+
+// console.log(countSeniors(["7868190130M7522", "5303914400F9211", "9273338290F410"])); // 2 (last entry is 4 years old)
+// console.log(countSeniors(["7868190130M7522", "5303914400F9211", "9273338290F9010", "9273338290F6110"])); // 4
+// console.log(countSeniors(["7868190130M7522", "5303914400F9211", "9273338290F10210"])); // 3 (assuming the last entry is 102 years old)
+
+
+
+function pivotInteger(n: number): number {
+    let total = n * (n + 1) / 2;
+
+    for (let i = 0; i <= n; i++) {
+        if (total === i ** 2) {
+            return i;
         }
     }
-    return count;
-}
+    return -1;
+};
 
-console.log(countSeniors(["7868190130M7522", "5303914400F9211", "9273338290F410"])); // 2 (last entry is 4 years old)
-console.log(countSeniors(["7868190130M7522", "5303914400F9211", "9273338290F9010", "9273338290F6110"])); // 4
-console.log(countSeniors(["7868190130M7522", "5303914400F9211", "9273338290F10210"])); // 3 (assuming the last entry is 102 years old)
+console.log(pivotInteger(8)); // 6
+console.log(pivotInteger(1)); // 1
+console.log(pivotInteger(4)); // -1
