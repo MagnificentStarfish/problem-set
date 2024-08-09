@@ -516,17 +516,63 @@
 
 
 
-function pivotInteger(n: number): number {
-    let total = n * (n + 1) / 2;
+// function pivotInteger(n: number): number {
+//     let total = n * (n + 1) / 2;
 
-    for (let i = 0; i <= n; i++) {
-        if (total === i ** 2) {
-            return i;
+//     for (let i = 0; i <= n; i++) {
+//         if (total === i ** 2) {
+//             return i;
+//         }
+//     }
+//     return -1;
+// };
+
+// console.log(pivotInteger(8)); // 6
+// console.log(pivotInteger(1)); // 1
+// console.log(pivotInteger(4)); // -1
+
+
+function numMagicSquaresInside(grid: number[][]): number {
+    const targetSum = 15;
+
+    function isMagicSquare(subgrid: number[][]): boolean {
+        const rows = subgrid;
+        for (let i = 0; i < 3; i++) {
+            if (rows[i][0] + rows[i][1] + rows[i][2] !== targetSum ||
+                rows[0][i] + rows[1][i] + rows[2][i] !== targetSum) {
+                return false;
+            }
+        }
+        if (rows[0][0] + rows[1][1] + rows[2][2] !== targetSum ||
+            rows[0][2] + rows[1][1] + rows[2][0] !== targetSum) {
+            return false;
+        }
+        return true;
+    }
+
+    let count = 0;
+    const rows = grid.length;
+    const cols = grid[0].length;
+
+    for (let r = 0; r <= rows - 3; r++) {
+        for (let c = 0; c <= cols - 3; c++) {
+            const subgrid: number[][] = [
+                grid[r].slice(c, c + 3),
+                grid[r + 1].slice(c, c + 3),
+                grid[r + 2].slice(c, c + 3)
+            ];
+
+            if (isMagicSquare(subgrid)) {
+                count++;
+            }
         }
     }
-    return -1;
-};
 
-console.log(pivotInteger(8)); // 6
-console.log(pivotInteger(1)); // 1
-console.log(pivotInteger(4)); // -1
+    return count;
+}
+
+console.log(numMagicSquaresInside([[4,3,8,4],[9,5,1,9],[2,7,6,2]])); // 1
+console.log(numMagicSquaresInside([[1,8,6],[10,5,0],[4,2,9]])); // 0
+console.log(numMagicSquaresInside([[4,7,8],[9,5,1],[2,3,6]])); // 0
+console.log(numMagicSquaresInside([[4,3,8,4],[9,5,1,9],[2,7,6,2]])); // 1
+console.log(numMagicSquaresInside([[4,3,8,4],[9,5,1,9],[2,7,6,2]])); // 1
