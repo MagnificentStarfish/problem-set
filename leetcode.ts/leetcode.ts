@@ -576,3 +576,4 @@ console.log(numMagicSquaresInside([[1,8,6],[10,5,0],[4,2,9]])); // 0
 console.log(numMagicSquaresInside([[4,7,8],[9,5,1],[2,3,6]])); // 0
 console.log(numMagicSquaresInside([[4,3,8,4],[9,5,1,9],[2,7,6,2]])); // 1
 console.log(numMagicSquaresInside([[4,3,8,4],[9,5,1,9],[2,7,6,2]])); // 1
+console.log(numMagicSquaresInside([[4,3,8,4],[9,5,1,9],[2,7,6,2]])); // 1
