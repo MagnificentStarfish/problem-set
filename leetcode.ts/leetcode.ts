@@ -640,7 +640,6 @@ function maximumBags(capacity: number[], rocks: number[], additionalRocks: numbe
     }
 
     let sortedRocksNeededArray = rocksNeededArray.sort((a, b) => a - b);
-    console.log(sortedRocksNeededArray);
 
     for (let i = 0; i < sortedRocksNeededArray.length; i++) {
         if (sortedRocksNeededArray[i] === 0) {
@@ -653,3 +652,7 @@ function maximumBags(capacity: number[], rocks: number[], additionalRocks: numbe
 
     return maxBag;
 }
+
+console.log(maximumBags([2, 3, 5], [2, 3, 5], 3)); // 3
+console.log(maximumBags([10, 2, 2], [2, 2, 0], 100)); // 3
+console.log(maximumBags([5, 5, 4], [3, 5, 2], 3)); // 2
