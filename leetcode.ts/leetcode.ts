@@ -579,20 +579,77 @@
 // console.log(numMagicSquaresInside([[4,3,8,4],[9,5,1,9],[2,7,6,2]])); // 1
 
 
-function maximumScore(a: number, b: number, c: number): number {
-    if (a > b + c) {
-        return (b + c);
-    }
-    if (b > a + c) {
-        return (a + c);
-    }
-    if (c > a + b) {
-        return (a + b);
-    }
-    return Math.floor(((a + b + c) /2))
-};
+// function maximumScore(a: number, b: number, c: number): number {
+//     if (a > b + c) {
+//         return (b + c);
+//     }
+//     if (b > a + c) {
+//         return (a + c);
+//     }
+//     if (c > a + b) {
+//         return (a + b);
+//     }
+//     return Math.floor(((a + b + c) /2))
+// };
 
-console.log(maximumScore(2, 4, 6)); // 6
-console.log(maximumScore(4, 4, 6)); // 7
-console.log(maximumScore(1, 8, 8)); // 8
-console.log(maximumScore(4, 4, 7)); // 7
+// console.log(maximumScore(2, 4, 6)); // 6
+// console.log(maximumScore(4, 4, 6)); // 7
+// console.log(maximumScore(1, 8, 8)); // 8
+// console.log(maximumScore(4, 4, 7)); // 7
+
+// This function equally fills all bags with rocks and returns the number of bags that are full
+// The original leetcode question is here: https://leetcode.com/problems/maximum-number-of-bags-of-sweets-you-can-distribute/
+// But my version of the code does not solve the problem, it just fills the bags with rocks equally
+// function maximumBags(capacity: number[], rocks: number[], additionalRocks: number): number {
+//     let bagFilled: boolean;
+//     while (additionalRocks > 0) {
+//         bagFilled = false;
+//         for (let i = 0; i < capacity.length; i++) {
+//             if (additionalRocks === 0) {
+//                 break;
+//             }
+//             if (capacity[i] > rocks[i]) {
+//                 rocks[i]++;
+//                 additionalRocks--;
+//                 bagFilled = true;
+//             }
+//         }
+//         if (!bagFilled) {
+//             break;
+//         }
+//     }
+
+//     let count = 0;
+//     for (let j = 0; j < capacity.length; j++) {
+//         if (capacity[j] === rocks[j]) {
+//             count++;
+//         }
+//     }
+//     return count;
+// }
+
+// Here is the version that correctly maximizes filling as many bags as possible
+function maximumBags(capacity: number[], rocks: number[], additionalRocks: number): number {
+    let maxBag: number = 0;
+
+    let rocksNeededArray: number[] = [];
+
+    for (let i = 0; i < rocks.length; i++) {
+        let rocksNeeded: number = capacity[i] - rocks[i];
+        rocksNeededArray.push(rocksNeeded);
+    }
+
+    let sortedRocksNeededArray = rocksNeededArray.sort((a, b) => a - b);
+    console.log(sortedRocksNeededArray);
+
+    for (let i = 0; i < sortedRocksNeededArray.length; i++) {
+        if (sortedRocksNeededArray[i] === 0) {
+            maxBag++;
+        } else if (sortedRocksNeededArray[i] <= additionalRocks) {
+            additionalRocks -= sortedRocksNeededArray[i];
+            maxBag++;
+        }
+    }
+
+    return maxBag;
+}
