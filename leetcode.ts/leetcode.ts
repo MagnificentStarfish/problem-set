@@ -629,30 +629,63 @@
 // }
 
 // Here is the version that correctly maximizes filling as many bags as possible
-function maximumBags(capacity: number[], rocks: number[], additionalRocks: number): number {
-    let maxBag: number = 0;
+// function maximumBags(capacity: number[], rocks: number[], additionalRocks: number): number {
+//     let maxBag: number = 0;
 
-    let rocksNeededArray: number[] = [];
+//     let rocksNeededArray: number[] = [];
 
-    for (let i = 0; i < rocks.length; i++) {
-        let rocksNeeded: number = capacity[i] - rocks[i];
-        rocksNeededArray.push(rocksNeeded);
-    }
+//     for (let i = 0; i < rocks.length; i++) {
+//         let rocksNeeded: number = capacity[i] - rocks[i];
+//         rocksNeededArray.push(rocksNeeded);
+//     }
 
-    let sortedRocksNeededArray = rocksNeededArray.sort((a, b) => a - b);
+//     let sortedRocksNeededArray = rocksNeededArray.sort((a, b) => a - b);
 
-    for (let i = 0; i < sortedRocksNeededArray.length; i++) {
-        if (sortedRocksNeededArray[i] === 0) {
-            maxBag++;
-        } else if (sortedRocksNeededArray[i] <= additionalRocks) {
-            additionalRocks -= sortedRocksNeededArray[i];
-            maxBag++;
-        }
-    }
+//     for (let i = 0; i < sortedRocksNeededArray.length; i++) {
+//         if (sortedRocksNeededArray[i] === 0) {
+//             maxBag++;
+//         } else if (sortedRocksNeededArray[i] <= additionalRocks) {
+//             additionalRocks -= sortedRocksNeededArray[i];
+//             maxBag++;
+//         }
+//     }
 
-    return maxBag;
-}
+//     return maxBag;
+// }
 
-console.log(maximumBags([2, 3, 5], [2, 3, 5], 3)); // 3
-console.log(maximumBags([10, 2, 2], [2, 2, 0], 100)); // 3
-console.log(maximumBags([5, 5, 4], [3, 5, 2], 3)); // 2
+// console.log(maximumBags([2, 3, 5], [2, 3, 5], 3)); // 3
+// console.log(maximumBags([10, 2, 2], [2, 2, 0], 100)); // 3
+// console.log(maximumBags([5, 5, 4], [3, 5, 2], 3)); // 2
+
+
+
+// The below function is a leetcode question that I have not solved yet
+// It only works when there are no repeated letters in the original string
+// function strangePrinter(s: string): number {
+//     let count: number = 1;
+
+
+//     if (s.length === 0) {
+//         return 0;
+//     }
+
+//     let charList = [s[0]];
+
+//     for (let i=0; i<s.length-1; i++) {
+//         if (s[i] === s[i+1]) {
+//             continue;
+//         }
+//         if (s[i] !== s[i+1] && !charList.includes(s[i+1])) {
+//             count++;
+//             charList.push(s[i+1]);
+//         }
+//         if (s[i] !== s[i+1] && charList.includes(s[i+1])) {
+//             continue;
+//         }
+//     }
+//     console.log(charList);
+//     return count;
+// };
+
+// console.log(strangePrinter('aaabbb')); // 2
+// console.log(strangePrinter('aba')); // Shold be 2 but returns 3
