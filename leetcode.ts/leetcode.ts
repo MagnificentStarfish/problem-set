@@ -689,3 +689,33 @@
 
 // console.log(strangePrinter('aaabbb')); // 2
 // console.log(strangePrinter('aba')); // Shold be 2 but returns 3
+
+
+function strangePrinter(s: string): number {
+    const n = s.length;
+    if (n === 0) return 0;
+
+    const dp = Array.from({ length: n }, () => Array(n).fill(0));
+
+    for (let i = n - 1; i >= 0; i--) {
+        dp[i][i] = 1;
+        for (let j = i + 1; j < n; j++) {
+            dp[i][j] = dp[i + 1][j] + 1;
+            for (let k = i + 1; k <= j; k++) {
+                if (s[i] === s[k]) {
+                    dp[i][j] = Math.min(dp[i][j], dp[i + 1][k - 1] + dp[k][j]);
+                }
+            }
+        }
+    }
+
+    return dp[0][n - 1];
+}
+
+console.log(strangePrinter('aba')); // 2
+console.log(strangePrinter('abc')); // 3
+console.log(strangePrinter('abab')); // 3
+console.log(strangePrinter('abac')); // 3
+console.log(strangePrinter('a')); // 1
+console.log(strangePrinter('')); // 0
+console.log(strangePrinter('abcabc')); // 5
