@@ -727,3 +727,22 @@ Given the root of an n-ary tree, return the postorder traversal of its nodes' va
 Nary-Tree input serialization is represented in their level order traversal.
 Each group of children is separated by the null value (See examples)
 ```
+
+
+/**
+ * Definition for node.
+ * class _Node {
+ *     val: number
+ *     children: _Node[]
+ *     constructor(val?: number) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.children = []
+ *     }
+ * }
+ */
+
+function postorder(root: _Node | null): number[] {
+    class _Node {
+
+    }
+};
